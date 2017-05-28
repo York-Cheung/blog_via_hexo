@@ -362,16 +362,16 @@
       
         
           
-            <p>做开发过程中有时候会需要在代码中使用文件路径。用习惯了Windows直接在路径栏复制文件路径的方式，Mac用户会发现OSX下没有一个方便的方法复制文件或文件夹的路径，笔者都是用鼠标右键文件然后在显示简介里复制文件路径，但还需要手动添加上文件名，十分的不人性化💩💩💩，经过一番google，发现了一个用workflow添加右键快捷菜单项的方法，故分享在此。</p>
-<p>在Launchpad里打开<code>Automator</code>：<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/1.png" alt="打开Automator" title="打开Automator"></p>
-<p>在左侧操作栏找到<code>拷贝至剪贴板</code>操作，拖到右侧，如下<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/2.png" alt="添加拷贝至剪贴板" title="添加拷贝至剪贴板"></p>
-<p>有两个地方需要修改，<code>&quot;服务&quot;收到选定的</code>选择“文件或文件夹”，<code>位于</code>选择Finder。<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/3.png" alt="进行基本设置" title="进行基本设置"></p>
-<p>最后<kbd>command</kbd>+<kbd>s</kbd>保存，命名为copy path，Done！<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/4.png" alt="保存" title="保存"></p>
-<p>接下来试一下效果，随便找一个文件，右键一下，看看菜单里是不是多了一个<code>copy path</code>选项。文件夹的快捷菜单项在<code>服务</code>里。点击之后文件路径就被复制到了剪贴板，找个地方粘贴一下看看结果是不是你想要的，如果想删除该服务，进入~/Library/Services/目录，删除对应的workflow文件即可。<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/5.png" alt="尝试效果" title="尝试效果"></p>
-<hr>
-<p>至此，快速复制文件路径的配置已经完成，默默吐槽一下苹果爸爸不把这一功能添加到系统里。</p>
-
-          
+          做开发过程中有时候会需要在代码中使用文件路径。用习惯了Windows直接在路径栏复制文件路径的方式，Mac用户会发现OSX下没有一个方便的方法复制文件或文件夹的路径，笔者都是用鼠标右键文件然后在显示简介里复制文件路径，但还需要手动添加上文件名，十分的不人性化💩💩💩，经过一番google，发现了一个用workflow添加右键快捷菜单项的方法，故分享在此。
+在Launchpad里打开Automa
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -492,9 +492,16 @@
       
         
           
-            <p>  这是一篇HelloWorld博文，我在腾讯云VPS上搭建了个人blog，使用了<a href="https://hexo.io/" target="_blank" rel="external">hexo</a>框架和<a href="https://nginx.org/cn/" target="_blank" rel="external">nginx</a>服务器，并采用githooks的方式自动部署。有空我将写一篇教程发布在这个blog上。</p>
+            这是一篇HelloWorld博文，我在腾讯云VPS上搭建了个人blog，使用了hexo框架和nginx服务器，并采用githooks的方式自动部署。有空我将写一篇教程发布在这个blog上。
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/一期一会/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -615,17 +622,16 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
