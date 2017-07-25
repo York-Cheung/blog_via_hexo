@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,9 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
 
 
 
@@ -108,7 +111,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -134,10 +137,6 @@
 
 
   <title>Hello World | Yorkson's Blog</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -153,6 +152,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -206,7 +208,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -216,7 +218,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -226,7 +228,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -306,24 +308,32 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="fa fa-file-word-o"></i>
                 </span>
-                <a href="/2017/05/25/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/25/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
 
-          
-          
+              
 
-          
-
+              
+            </div>
           
 
           
@@ -368,21 +378,6 @@
     <div>
       
         
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      Yorkson
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="http://yorksonchang.com/2017/05/25/hello-world/" title="Hello World">http://yorksonchang.com/2017/05/25/hello-world/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-
 
       
     </div>
@@ -391,7 +386,7 @@
       
 
       
-        
+      
       
 
       
@@ -432,13 +427,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
   </div>
 
 
@@ -455,6 +443,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -477,14 +466,14 @@
                alt="Yorkson" />
           <p class="site-author-name" itemprop="name">Yorkson</p>
            
-              <p class="site-description motion-element" itemprop="description">一期一会</p>
+              <p class="site-description motion-element" itemprop="description">人！生！就！是！不！停！地！战！斗！</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
+              <a href="/archives/">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -496,7 +485,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -507,7 +496,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -518,17 +507,6 @@
         
 
         <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/YorksonChang" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
           
         </div>
 
@@ -630,8 +608,6 @@
   
 
 
-  
-
 
 
 
@@ -659,9 +635,6 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -694,26 +667,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yorksonchang.com/2017/05/25/hello-world/';
-          this.page.identifier = '2017/05/25/hello-world/';
-          this.page.title = 'Hello World';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -735,12 +688,6 @@
 
 
 
-  
-
-
-
-
-
 
   
 
@@ -751,10 +698,30 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
   
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
 
   
 
