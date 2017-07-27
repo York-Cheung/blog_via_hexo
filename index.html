@@ -394,11 +394,11 @@
 <li>pyenv-virtualenv：<a href="https://github.com/pyenv/pyenv-virtualenv" target="_blank" rel="external">https://github.com/pyenv/pyenv-virtualenv</a></li>
 </ul>
 <p>下面讲怎么安装和使用这个工具。</p>
-<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><ul>
+<h1 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h1><ul>
 <li>MacOS  Sierra 10.12</li>
 <li>Homebrew</li>
 </ul>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="1-安装Homebrew"><a href="#1-安装Homebrew" class="headerlink" title="1. 安装Homebrew"></a>1. 安装Homebrew</h3><p>我们可以用<code>brew</code>命令来更新OSX系统，<code>brew</code>命令类似于RHEL的<code>yum</code>和ubuntu的<code>apt-get</code>命令，Homebrew的官网是这样说的：</p>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h3 id="1-安装Homebrew"><a href="#1-安装Homebrew" class="headerlink" title="1. 安装Homebrew"></a>1. 安装Homebrew</h3><p>我们可以用<code>brew</code>命令来更新OSX系统，<code>brew</code>命令类似于RHEL的<code>yum</code>和ubuntu的<code>apt-get</code>命令，Homebrew的官网是这样说的：</p>
 <blockquote>
 <p>homebrew – The missing package manager for OS X</p>
 </blockquote>
@@ -416,14 +416,14 @@
 <p>然后添加下面两条命令到<code>~/.bash_profile</code>文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval &quot;$(pyenv init -)&quot;</div><div class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</div></pre></td></tr></table></figure>
 <p>重启终端，使环境变量生效。</p>
-<h2 id="pyenv用法"><a href="#pyenv用法" class="headerlink" title="pyenv用法"></a>pyenv用法</h2><h3 id="1-安装Python"><a href="#1-安装Python" class="headerlink" title="1. 安装Python"></a>1. 安装Python</h3><p><code>pyenv install &lt;version&gt;</code>命令用于安装其他版本的Python。例如安装3.5.1和3.4.4版本：</p>
+<h1 id="pyenv用法"><a href="#pyenv用法" class="headerlink" title="pyenv用法"></a>pyenv用法</h1><h3 id="1-安装Python"><a href="#1-安装Python" class="headerlink" title="1. 安装Python"></a>1. 安装Python</h3><p><code>pyenv install &lt;version&gt;</code>命令用于安装其他版本的Python。例如安装3.5.1和3.4.4版本：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ pyenv install 3.5.1</div><div class="line">$ pyenv install 3.4.4</div><div class="line">$ pyenv versions #可以看到3个版本</div><div class="line">*system (set by /Users/yulongjun/.pyenv/version)</div><div class="line">3.4.4</div><div class="line">3.5.1</div></pre></td></tr></table></figure>
 <h3 id="2-查看安装的Python版本"><a href="#2-查看安装的Python版本" class="headerlink" title="2. 查看安装的Python版本"></a>2. 查看安装的Python版本</h3><p><code>pyenv versions</code>命令用于查看系统的上安装的Python版本。 其中前面的<code>*</code>表示当前工作目录正在使用的版本,其中 的 <code>system</code>表示系统自带的 Python 版本：<code>$ pyenv versions*system (set by /Users/yulongjun/.pyenv/version)</code></p>
 <h3 id="3-切换Python版本"><a href="#3-切换Python版本" class="headerlink" title="3. 切换Python版本"></a>3. 切换Python版本</h3><p><code>pyenv local &lt;version&gt;</code>命令用于切换python版本。</p>
 <p>示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ cd                   #到家目录</div><div class="line">$ mkdir python35      #创建python35的工作目录</div><div class="line">$ cd python35</div><div class="line">$ pyenv local 3.5.1    #使当前工作目录使用python3.5.1版本</div><div class="line">$ python -V            #查看一下当前目录用python的版本，确实是3.5.1</div><div class="line">Python3.5.1</div><div class="line">$ pip -V               #查看一下pip版本,是3.5的pip</div><div class="line">pip 7.1.2 from /usr/local/var/pyenv/versions/3.5.1/lib/python3.5/site-packages (python 3.5)</div><div class="line">$ cd                   #回到家目录</div><div class="line">$ mkdir python34     #创建python3.4的工作目录</div><div class="line">$ cd python34</div><div class="line">$ pyenv local 3.4      #使当前工作目录使用python3.4.4版本</div><div class="line">$ python -V            #查看一下当前目录用python的版本，确实是3.5.1</div><div class="line">Python 3.4.4</div><div class="line">$ pip -V               #查看一下pip版本，是3.4的pip</div><div class="line">pip 7.1.2 from /usr/local/var/pyenv/versions/3.4.4/lib/python3.4/site-packages (python 3.4)</div></pre></td></tr></table></figure>
 <p>其他版本的工作目录创建方法类似(如果是用系统自带版本，用<code>pyenv local system</code>即可使当前工作目录使用系统自带的Python2.7.10，不过一般很少用系统自带的Python)</p>
-<h2 id="pyenv-virtualenv用法"><a href="#pyenv-virtualenv用法" class="headerlink" title="pyenv-virtualenv用法"></a>pyenv-virtualenv用法</h2><h3 id="1-创建指定Python版本的虚拟环境"><a href="#1-创建指定Python版本的虚拟环境" class="headerlink" title="1. 创建指定Python版本的虚拟环境"></a>1. 创建指定Python版本的虚拟环境</h3><p>使用 <code>pyenv virtualenv</code>命令为某一指定Python版本创建一个虚拟环境。</p>
+<h1 id="pyenv-virtualenv用法"><a href="#pyenv-virtualenv用法" class="headerlink" title="pyenv-virtualenv用法"></a>pyenv-virtualenv用法</h1><h3 id="1-创建指定Python版本的虚拟环境"><a href="#1-创建指定Python版本的虚拟环境" class="headerlink" title="1. 创建指定Python版本的虚拟环境"></a>1. 创建指定Python版本的虚拟环境</h3><p>使用 <code>pyenv virtualenv</code>命令为某一指定Python版本创建一个虚拟环境。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pyenv virtualenv 2.7.10 my-virtual-env-2.7.10</div></pre></td></tr></table></figure>
 <p>上面的命令将会创建一个基于 Python 2.7.10的虚拟环境，名字为<code>my-virtual-env-2.7.10</code>。</p>
 <p>如果只给 <code>pyenv virtualenv</code>命令一个参数， 将会创建一个基于当前版本的虚拟环境：</p>
