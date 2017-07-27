@@ -386,59 +386,16 @@
       
         
           
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>pyenv可以轻松地在多个版本的Python之间切换。它的使用很简单，并遵循UNIX的传统：做一件工具，只做好一件事。pyenv的用途单一也实用：管理你电脑上各个版本的Python。通过它可以实现Python2、Python3、Python3.5之间的共存和切换。</p>
-<p>virtualenv用来创建一个干净的虚拟Python运行环境，在创建空白项目的时候很有用，也方便管理Python包。virtualenv可以通过安装pyenv-virtualenv插件来和pyenv配合使用。</p>
-<p>GitHub:</p>
-<ul>
-<li>pyenv：<a href="https://github.com/pyenv/pyenv" target="_blank" rel="external">https://github.com/pyenv/pyenv</a></li>
-<li>pyenv-virtualenv：<a href="https://github.com/pyenv/pyenv-virtualenv" target="_blank" rel="external">https://github.com/pyenv/pyenv-virtualenv</a></li>
-</ul>
-<p>下面讲怎么安装和使用这个工具。</p>
-<h1 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h1><ul>
-<li>MacOS  Sierra 10.12</li>
-<li>Homebrew</li>
-</ul>
-<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h3 id="1-安装Homebrew"><a href="#1-安装Homebrew" class="headerlink" title="1. 安装Homebrew"></a>1. 安装Homebrew</h3><p>我们可以用<code>brew</code>命令来更新OSX系统，<code>brew</code>命令类似于RHEL的<code>yum</code>和ubuntu的<code>apt-get</code>命令，Homebrew的官网是这样说的：</p>
-<blockquote>
-<p>homebrew – The missing package manager for OS X</p>
-</blockquote>
-<p>我们使用brew命令来进行依赖的安装和软件的管理。</p>
-<p>登陆<a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a>官网，根据提示使用ruby安装homebrew：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
-<p>在Terminal里复制粘贴以上神秘代码，完成安装。</p>
-<h3 id="2-安装pyenv"><a href="#2-安装pyenv" class="headerlink" title="2. 安装pyenv"></a>2. 安装pyenv</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ brew update</div><div class="line">$ brew install pyenv</div></pre></td></tr></table></figure>
-<p>（升级pyenv可以使用<code>brew upgrade pyenv</code>命令。）</p>
-<p><strong>然后将<code>pyenv init</code>添加到 shell，</strong> 添加一条命令到<code>~/.bash_profile</code>文件尾部：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
-<p>PS：博主使用的是<strong>Zsh</strong>，所以命令添加到  <code>~/.zshenv</code> 文件而不是 <code>~/.bash_profile</code>。然后重启终端就好了。</p>
-<p><strong>卸载</strong>：<code>brew uninstall pyenv</code>，然后删除之前填在<code>~/.bash_profile</code>文件里那两行。</p>
-<h3 id="3-安装pyenv-virtualenv"><a href="#3-安装pyenv-virtualenv" class="headerlink" title="3. 安装pyenv-virtualenv"></a>3. 安装pyenv-virtualenv</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install pyenv-virtualenv</div></pre></td></tr></table></figure>
-<p>然后添加下面两条命令到<code>~/.bash_profile</code>文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval &quot;$(pyenv init -)&quot;</div><div class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</div></pre></td></tr></table></figure>
-<p>重启终端，使环境变量生效。</p>
-<h1 id="pyenv用法"><a href="#pyenv用法" class="headerlink" title="pyenv用法"></a>pyenv用法</h1><h3 id="1-安装Python"><a href="#1-安装Python" class="headerlink" title="1. 安装Python"></a>1. 安装Python</h3><p><code>pyenv install &lt;version&gt;</code>命令用于安装其他版本的Python。例如安装3.5.1和3.4.4版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ pyenv install 3.5.1</div><div class="line">$ pyenv install 3.4.4</div><div class="line">$ pyenv versions #可以看到3个版本</div><div class="line">*system (set by /Users/yulongjun/.pyenv/version)</div><div class="line">3.4.4</div><div class="line">3.5.1</div></pre></td></tr></table></figure>
-<h3 id="2-查看安装的Python版本"><a href="#2-查看安装的Python版本" class="headerlink" title="2. 查看安装的Python版本"></a>2. 查看安装的Python版本</h3><p><code>pyenv versions</code>命令用于查看系统的上安装的Python版本。 其中前面的<code>*</code>表示当前工作目录正在使用的版本,其中 的 <code>system</code>表示系统自带的 Python 版本：<code>$ pyenv versions*system (set by /Users/yulongjun/.pyenv/version)</code></p>
-<h3 id="3-切换Python版本"><a href="#3-切换Python版本" class="headerlink" title="3. 切换Python版本"></a>3. 切换Python版本</h3><p><code>pyenv local &lt;version&gt;</code>命令用于切换python版本。</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ cd                   #到家目录</div><div class="line">$ mkdir python35      #创建python35的工作目录</div><div class="line">$ cd python35</div><div class="line">$ pyenv local 3.5.1    #使当前工作目录使用python3.5.1版本</div><div class="line">$ python -V            #查看一下当前目录用python的版本，确实是3.5.1</div><div class="line">Python3.5.1</div><div class="line">$ pip -V               #查看一下pip版本,是3.5的pip</div><div class="line">pip 7.1.2 from /usr/local/var/pyenv/versions/3.5.1/lib/python3.5/site-packages (python 3.5)</div><div class="line">$ cd                   #回到家目录</div><div class="line">$ mkdir python34     #创建python3.4的工作目录</div><div class="line">$ cd python34</div><div class="line">$ pyenv local 3.4      #使当前工作目录使用python3.4.4版本</div><div class="line">$ python -V            #查看一下当前目录用python的版本，确实是3.5.1</div><div class="line">Python 3.4.4</div><div class="line">$ pip -V               #查看一下pip版本，是3.4的pip</div><div class="line">pip 7.1.2 from /usr/local/var/pyenv/versions/3.4.4/lib/python3.4/site-packages (python 3.4)</div></pre></td></tr></table></figure>
-<p>其他版本的工作目录创建方法类似(如果是用系统自带版本，用<code>pyenv local system</code>即可使当前工作目录使用系统自带的Python2.7.10，不过一般很少用系统自带的Python)</p>
-<h1 id="pyenv-virtualenv用法"><a href="#pyenv-virtualenv用法" class="headerlink" title="pyenv-virtualenv用法"></a>pyenv-virtualenv用法</h1><h3 id="1-创建指定Python版本的虚拟环境"><a href="#1-创建指定Python版本的虚拟环境" class="headerlink" title="1. 创建指定Python版本的虚拟环境"></a>1. 创建指定Python版本的虚拟环境</h3><p>使用 <code>pyenv virtualenv</code>命令为某一指定Python版本创建一个虚拟环境。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pyenv virtualenv 2.7.10 my-virtual-env-2.7.10</div></pre></td></tr></table></figure>
-<p>上面的命令将会创建一个基于 Python 2.7.10的虚拟环境，名字为<code>my-virtual-env-2.7.10</code>。</p>
-<p>如果只给 <code>pyenv virtualenv</code>命令一个参数， 将会创建一个基于当前版本的虚拟环境：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ pyenv version</div><div class="line">3.4.3 (set by /home/yyuu/.pyenv/version)</div><div class="line">$ pyenv virtualenv venv34</div></pre></td></tr></table></figure>
-<h3 id="2-列出所有虚拟环境"><a href="#2-列出所有虚拟环境" class="headerlink" title="2. 列出所有虚拟环境"></a>2. 列出所有虚拟环境</h3><p><code>pyenv virtualenvs</code> 列出所有本电脑的Python环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ pyenv shell venv34</div><div class="line">$ pyenv virtualenvs</div><div class="line">  miniconda3-3.9.1 (created from /home/yyuu/.pyenv/versions/miniconda3-3.9.1)</div><div class="line">  miniconda3-3.9.1/envs/myenv (created from /home/yyuu/.pyenv/versions/miniconda3-3.9.1)</div><div class="line">  2.7.10/envs/my-virtual-env-2.7.10 (created from /home/yyuu/.pyenv/versions/2.7.10)</div><div class="line">  3.4.3/envs/venv34 (created from /home/yyuu/.pyenv/versions/3.4.3)</div><div class="line">  my-virtual-env-2.7.10 (created from /home/yyuu/.pyenv/versions/2.7.10)</div><div class="line">* venv34 (created from /home/yyuu/.pyenv/versions/3.4.3)</div></pre></td></tr></table></figure>
-<h3 id="3-激活虚拟环境"><a href="#3-激活虚拟环境" class="headerlink" title="3. 激活虚拟环境"></a>3. 激活虚拟环境</h3><p>创建项目，使用<code>pyenv local</code>命令让项目使用干净的Python2.7.10的虚拟环境：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir myproject</div><div class="line">$ cd myproject</div><div class="line">$ pyenv local my-virtual-env-2.7.10</div></pre></td></tr></table></figure>
-<p>此后，只要我们进入myproject目录，就会自动激活virtualenv，退出myproject目录，就会关闭virtualenv。</p>
-<p>也可以通过下面的命令手动激活／取消激活虚拟环境：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pyenv activate &lt;name&gt;</div><div class="line">pyenv deactivate</div></pre></td></tr></table></figure>
-<h3 id="4-删除存在的虚拟环境"><a href="#4-删除存在的虚拟环境" class="headerlink" title="4. 删除存在的虚拟环境"></a>4. 删除存在的虚拟环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyenv uninstall my-virtual-env</div></pre></td></tr></table></figure>
-<p>可以把 <code>$(pyenv root)/versions</code> 和 <code>$(pyenv root)/versions/{version}/envs</code> 下的文件夹删除达到删除虚拟环境的目的。</p>
-
-          
+          前言pyenv可以轻松地在多个版本的Python之间切换。它的使用很简单，并遵循UNIX的传统：做一件工具，只做好一件事。pyenv的用途单一也实用：管理你电脑上各个版本的Python。通过它可以实现Python2、Python3、Python3.5之间的共存和切换。
+virtualenv用来创建一个干净的虚拟Python运行环境，在创建空白项目的时候很有用，也方便管理Python包。virtua
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/使用pyenv + virtualenv管理Python版本和Python包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -589,16 +546,16 @@
       
         
           
-            <p>做开发过程中有时候会需要在代码中使用文件路径。用习惯了Windows直接在路径栏复制文件路径的方式，Mac用户会发现OSX下没有一个方便的方法复制文件或文件夹的路径，笔者都是用鼠标右键文件然后在显示简介里复制文件路径，但还需要手动添加上文件名，十分的不人性化💩💩💩，经过一番google，发现了一个用workflow添加右键快捷菜单项的方法，故分享在此。</p>
-<p>在Launchpad里打开<code>Automator</code>：<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/1.png" alt="打开Automator" title="打开Automator"></p>
-<p>在左侧操作栏找到<code>拷贝至剪贴板</code>操作，拖到右侧，如下<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/2.png" alt="添加拷贝至剪贴板" title="添加拷贝至剪贴板"></p>
-<p>有两个地方需要修改，<code>&quot;服务&quot;收到选定的</code>选择“文件或文件夹”，<code>位于</code>选择Finder。<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/3.png" alt="进行基本设置" title="进行基本设置"></p>
-<p>最后<kbd>command</kbd>+<kbd>s</kbd>保存，命名为copy path，Done！<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/4.png" alt="保存" title="保存"></p>
-<p>接下来试一下效果，随便找一个文件，右键一下，看看菜单里是不是多了一个<code>copy path</code>选项。文件夹的快捷菜单项在<code>服务</code>里。点击之后文件路径就被复制到了剪贴板，找个地方粘贴一下看看结果是不是你想要的，如果想删除该服务，进入~/Library/Services/目录，删除对应的workflow文件即可。<br><img src="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/5.png" alt="尝试效果" title="尝试效果"></p>
-<hr>
-<p>至此，快速复制文件路径的配置已经完成，默默吐槽一下苹果爸爸不把这一功能添加到系统里。</p>
-
-          
+          做开发过程中有时候会需要在代码中使用文件路径。用习惯了Windows直接在路径栏复制文件路径的方式，Mac用户会发现OSX下没有一个方便的方法复制文件或文件夹的路径，笔者都是用鼠标右键文件然后在显示简介里复制文件路径，但还需要手动添加上文件名，十分的不人性化💩💩💩，经过一番google，发现了一个用workflow添加右键快捷菜单项的方法，故分享在此。
+在Launchpad里打开Automa
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -727,9 +684,16 @@
       
         
           
-            <p>  这是一篇HelloWorld博文，我在腾讯云VPS上搭建了个人blog，使用了<a href="https://hexo.io/" target="_blank" rel="external">hexo</a>框架和<a href="https://nginx.org/cn/" target="_blank" rel="external">nginx</a>服务器，并采用githooks的方式自动部署。有空我将写一篇教程发布在这个blog上。</p>
+            这是一篇HelloWorld博文，我在腾讯云VPS上搭建了个人blog，使用了hexo框架和nginx服务器，并采用githooks的方式自动部署。有空我将写一篇教程发布在这个blog上。
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/一期一会/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -858,17 +822,16 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
