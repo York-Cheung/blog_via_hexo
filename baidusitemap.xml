@@ -4,8 +4,34 @@
 
     
   <url>
+    <loc>http://yorksonchang.com/2017/08/18/Stanford-CS231n-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-lecture1/</loc>
+    <lastmod>2017-08-17T19:33:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>Stanford CS231n 斯坦福深度学习课程 课堂笔记（lecture 1）</title>
+        <pubTime>2017-08-17T19:33:56.000Z</pubTime>
+        
+        <tag>笔记</tag>
+         
+        <tag>深度学习</tag>
+         
+        <tag>计算机视觉</tag>
+         
+        <tag>CS231n</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://yorksonchang.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yorksonchang.com/2017/07/26/%E4%BD%BF%E7%94%A8pyenv%20+%20virtualenv%E7%AE%A1%E7%90%86Python%E7%89%88%E6%9C%AC%E5%92%8CPython%E5%8C%85/</loc>
-    <lastmod>2017-07-27T21:53:34.000Z</lastmod>
+    <lastmod>2017-07-28T16:27:18.000Z</lastmod>
     <data>
         <display>
         <title>使用pyenv + virtualenv管理Python版本和Python包</title>
