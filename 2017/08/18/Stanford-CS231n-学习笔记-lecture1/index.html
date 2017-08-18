@@ -104,11 +104,10 @@
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/summary.png">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/NN.png">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/for_example.jpg">
-<meta property="og:image" content="http://www.zhihu.com/equation?tex=x_i">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear0.png">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear1.jpg">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear2.jpg">
-<meta property="og:updated_time" content="2017-08-18T03:03:36.000Z">
+<meta property="og:updated_time" content="2017-08-18T03:24:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stanford CS231n 斯坦福深度学习课程 课堂笔记（lecture 1）">
 <meta name="twitter:description" content="Lecture 1: 图像分类 Image ClassificationLecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。  网易云课堂地址（中文）：http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?lessonId=1">
@@ -417,7 +416,7 @@
 <img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/for_example.jpg" alt="for_example.jpg" title="">
 <p>在CIFAR-10中，我们有一个<strong>N</strong>=50000的训练集，每个图像有<strong>D</strong>=32x32x3=3072个像素，而<strong>K</strong>=10，这是因为图片被分为10个不同的类别（狗，猫，汽车等）。我们现在定义评分函数为：$f:R^D\to R^K$，该函数是原始图像像素到分类分值的映射。</p>
 <p>在本模型中，我们从最简单的概率函数开始，一个线性映射：<br>$$<br>\displaystyle f(x_i,W,b)=Wx_i+b<br>$$</p>
-<p>在上面的公式中，假设每个图像数据都被拉长为一个长度为D的列向量，大小为[D x 1]。其中大小为[K x D]的矩阵<strong>W</strong>和大小为[K x 1]列向量<strong>b</strong>为该函数的<strong>参数（parameters）</strong>。还是以CIFAR-10为例，$x_i$就包含了第i个图像的所有像素信息，这些信息被拉成为一个[3072 x 1]的列向量，<strong>W</strong>大小为[10x3072]，<strong>b</strong>的大小为[10x1]。因此，3072个数字（原始像素数值）输入函数，函数输出10个数字（不同分类得到的分值）。参数<strong>W</strong>被称为<strong>权重（weights）</strong>。<strong>b</strong>被称为<strong>偏差向量（bias vector）</strong>，这是因为它影响输出数值，但是并不和原始数据<img src="http://www.zhihu.com/equation?tex=x_i" alt="x_i">产生关联。在实际情况中，人们常常混用<strong>权重</strong>和<strong>参数</strong>这两个术语。</p>
+<p>在上面的公式中，假设每个图像数据都被拉长为一个长度为D的列向量，大小为[D x 1]。其中大小为[K x D]的矩阵<strong>W</strong>和大小为[K x 1]列向量<strong>b</strong>为该函数的<strong>参数（parameters）</strong>。还是以CIFAR-10为例，$x_i$就包含了第i个图像的所有像素信息，这些信息被拉成为一个[3072 x 1]的列向量，<strong>W</strong>大小为[10x3072]，<strong>b</strong>的大小为[10x1]。因此，3072个数字（原始像素数值）输入函数，函数输出10个数字（不同分类得到的分值）。参数<strong>W</strong>被称为<strong>权重（weights）</strong>。<strong>b</strong>被称为<strong>偏差向量（bias vector）</strong>，这是因为它影响输出数值，但是并不和原始数据$x_i$产生关联。在实际情况中，人们常常混用<strong>权重</strong>和<strong>参数</strong>这两个术语。</p>
 <img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear0.png" alt="linear0.png" title="">
 <h3 id="6-如何更好地理解线性分类器"><a href="#6-如何更好地理解线性分类器" class="headerlink" title="6. 如何更好地理解线性分类器"></a><strong>6. 如何更好地理解线性分类器</strong></h3><ul>
 <li><h4 id="将图像看做高维度的点"><a href="#将图像看做高维度的点" class="headerlink" title="将图像看做高维度的点"></a><strong>将图像看做高维度的点</strong></h4><p>既然图像被伸展成为了一个高维度的列向量，那么我们可以把图像看做这个高维度空间中的一个点（即每张图像是3072维空间中的一个点）。整个数据集就是一个点的集合，每个点都带有1个分类标签。</p>
