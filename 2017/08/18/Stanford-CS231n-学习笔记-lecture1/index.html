@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="笔记,深度学习,计算机视觉,CS231n," />
+  <meta name="keywords" content="深度学习,计算机视觉,CS231n,笔记," />
 
 
 
@@ -93,13 +93,13 @@
 
 
 
-<meta name="description" content="Lecture 1: 图像分类 Image ClassificationLecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。  网易云课堂地址（中文）：http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?lessonId=1">
-<meta name="keywords" content="笔记,深度学习,计算机视觉,CS231n">
+<meta name="description" content="CS231n Lecture 1: 图像分类 Image ClassificationLecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。  网易云课堂地址（中文）：http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?les">
+<meta name="keywords" content="深度学习,计算机视觉,CS231n,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stanford CS231n 斯坦福深度学习课程 课堂笔记（lecture 1）">
 <meta property="og:url" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/index.html">
 <meta property="og:site_name" content="Yorkson&#39;s Blog">
-<meta property="og:description" content="Lecture 1: 图像分类 Image ClassificationLecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。  网易云课堂地址（中文）：http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?lessonId=1">
+<meta property="og:description" content="CS231n Lecture 1: 图像分类 Image ClassificationLecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。  网易云课堂地址（中文）：http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?les">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/mindnode_lecture1.png">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/summary.png">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/NN.png">
@@ -107,10 +107,10 @@
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear0.png">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear1.jpg">
 <meta property="og:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear2.jpg">
-<meta property="og:updated_time" content="2017-08-18T10:02:29.000Z">
+<meta property="og:updated_time" content="2017-08-23T17:03:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stanford CS231n 斯坦福深度学习课程 课堂笔记（lecture 1）">
-<meta name="twitter:description" content="Lecture 1: 图像分类 Image ClassificationLecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。  网易云课堂地址（中文）：http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?lessonId=1">
+<meta name="twitter:description" content="CS231n Lecture 1: 图像分类 Image ClassificationLecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。  网易云课堂地址（中文）：http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?les">
 <meta name="twitter:image" content="http://yorksonchang.com/2017/08/18/Stanford-CS231n-学习笔记-lecture1/mindnode_lecture1.png">
 
 
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,522
+                  4,288
                 </span>
               
 
@@ -388,7 +388,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  13
+                  15
                 </span>
               
             </div>
@@ -406,7 +406,7 @@
       
 
       
-        <h1 id="Lecture-1-图像分类-Image-Classification"><a href="#Lecture-1-图像分类-Image-Classification" class="headerlink" title="Lecture 1: 图像分类 Image Classification"></a>Lecture 1: 图像分类 Image Classification</h1><p>Lecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。</p>
+        <h1 id="CS231n-Lecture-1-图像分类-Image-Classification"><a href="#CS231n-Lecture-1-图像分类-Image-Classification" class="headerlink" title="CS231n Lecture 1: 图像分类 Image Classification"></a>CS231n Lecture 1: 图像分类 Image Classification</h1><p>Lecture 1 主要讲了图像分类的目的、作用和难点，数据驱动方法， 最邻近分类器和K最临近分类器，以及线性分类的基本介绍。</p>
 <ul>
 <li>网易云课堂地址（中文）：<a href="http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?lessonId=1003705493&amp;courseId=1003223001" target="_blank" rel="external">http://study.163.com/course/courseLearn.htm?courseId=1003223001#/learn/video?lessonId=1003705493&amp;courseId=1003223001</a></li>
 <li>2017spring 课程地址（英文）：<a href="http://www.bilibili.com/video/av13260183/index_2.html#page=2" target="_blank" rel="external">http://www.bilibili.com/video/av13260183/index_2.html#page=2</a></li>
@@ -416,7 +416,11 @@
 <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/mindnode_lecture1.png" alt="mindnode_lecture1.png" title="">
 <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h3 id="1-L1和L2的区别"><a href="#1-L1和L2的区别" class="headerlink" title="1. L1和L2的区别"></a>1. L1和L2的区别</h3><p>机器学习中出现的非常频繁的问题：过拟合与规则化。最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。</p>
 <p>L1范数（L1 norm）是指向量中各个元素绝对值之和，也叫“稀疏规则算子”（Lasso regularization）。<br>比如 向量A=[1，-1，3]， 那么A的L1范数为 |1|+|-1|+|3|.</p>
-<p>简单总结一下就是：<br><strong>L1范数: 为x向量各个元素绝对值之和。</strong><br><strong>L2范数: 为x向量各个元素平方和的1/2次方</strong>，L2范数又称Euclidean范数或者Frobenius范数<br>Lp范数: 为x向量各个元素绝对值p次方和的1/p次方.</p>
+<p>简单总结一下就是：<br><strong>L1范数: 为x向量各个元素绝对值之和。</strong><br>$$<br>d_1 (I_1, I<em>2) = \sum</em>{p} \left| I^p_1 - I^p_2 \right|<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distances_l1 = np.sum(np.abs(self.Xtr - X[i,:]), axis = <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>L2范数: 为x向量各个元素平方和的1/2次方**，L2范数又称Euclidean范数或者Frobenius范数<br>$$<br>d_2 (I_1, I<em>2) = \sqrt{\sum</em>{p} \left( I^p_1 - I^p_2 \right)^2}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distances_l2 = np.sqrt(np.sum(np.square(self.Xtr - X[i,:]), axis = <span class="number">1</span>))</div></pre></td></tr></table></figure>
+<p>Lp范数: 为x向量各个元素绝对值p次方和的1/p次方.</p>
 <p>在支持向量机学习过程中，L1范数实际是一种对于成本函数求解最优的过程，因此，L1范数正则化通过向成本函数中添加L1范数，使得学习得到的结果满足稀疏化，从而方便人类提取特征。</p>
 <p><strong>L1范数可以使权值稀疏，方便特征提取。</strong> <strong>使用L1正则化可以得到稀疏的权值</strong>。</p>
 <p><strong>L2范数会产生更多地特征但是都会接近于0，可以防止过拟合，提升模型的泛化能力。</strong> <strong>使用L2正则化可以得到平滑的权值。</strong></p>
@@ -425,27 +429,38 @@
 <p>L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0。Lasso在特征选择时候非常有用，而Ridge就只是一种规则化而已。</p>
 </blockquote>
 <p>参考：<a href="http://blog.csdn.net/zouxy09/article/details/24971995" target="_blank" rel="external">机器学习中的范数规则化之（一）L0、L1与L2范数</a></p>
-<h3 id="2-KNN中超参数K的选择"><a href="#2-KNN中超参数K的选择" class="headerlink" title="2. KNN中超参数K的选择"></a>2. KNN中超参数K的选择</h3><p>使用 <strong>validation set</strong> 验证集进行算法的调优，注意验证集与测试集的区别。</p>
+<h3 id="2-kNN中超参数k的选择"><a href="#2-kNN中超参数k的选择" class="headerlink" title="2. kNN中超参数k的选择"></a>2. kNN中超参数k的选择</h3><p>使用 <strong>validation set</strong> 验证集进行算法的调优，注意验证集与测试集的区别。</p>
 
 
 <p>特别注意：<strong>决不能使用测试集来进行调优</strong>。当你在设计机器学习算法的时候，应该把测试集看做非常珍贵的资源，不到最后一步，绝不使用它。如果你使用测试集来调优，而且算法看起来效果不错，那么真正的危险在于：算法实际部署后，性能可能会远低于预期。这种情况，称之为算法对测试集<strong>过拟合</strong>。从另一个角度来说，如果使用测试集来调优，实际上就是把测试集当做训练集，由测试集训练出来的算法再跑测试集，自然性能看起来会很好。这其实是过于乐观了，实际部署起来效果就会差很多。所以，最终测试的时候再使用测试集，可以很好地近似度量你所设计的分类器的泛化性能（在接下来的课程中会有很多关于泛化性能的讨论）。</p>
 <blockquote>
 <p>测试数据集只使用一次，即在训练完成后评价最终的模型时使用。</p>
 </blockquote>
-<p>好在我们有不用测试集调优的方法。其思路是：从训练集中取出一部分数据用来调优，我们称之为<strong>验证集（validation set）</strong>。以CIFAR-10为例，我们可以用49000个图像作为训练集，用1000个图像作为验证集。验证集其实就是作为假的测试集来调优。下面就是代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># assume we have Xtr_rows, Ytr, Xte_rows, Yte as before</span></div><div class="line"><span class="comment"># recall Xtr_rows is 50,000 x 3072 matrix</span></div><div class="line">Xval_rows = Xtr_rows[:<span class="number">1000</span>, :] <span class="comment"># take first 1000 for validation</span></div><div class="line">Yval = Ytr[:<span class="number">1000</span>]</div><div class="line">Xtr_rows = Xtr_rows[<span class="number">1000</span>:, :] <span class="comment"># keep last 49,000 for train</span></div><div class="line">Ytr = Ytr[<span class="number">1000</span>:]</div><div class="line"></div><div class="line"><span class="comment"># find hyperparameters that work best on the validation set</span></div><div class="line">validation_accuracies = []</div><div class="line"><span class="keyword">for</span> k <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">100</span>]:</div><div class="line"></div><div class="line">  <span class="comment"># use a particular value of k and evaluation on validation data</span></div><div class="line">  nn = NearestNeighbor()</div><div class="line">  nn.train(Xtr_rows, Ytr)</div><div class="line">  <span class="comment"># here we assume a modified NearestNeighbor class that can take a k as input</span></div><div class="line">  Yval_predict = nn.predict(Xval_rows, k = k)</div><div class="line">  acc = np.mean(Yval_predict == Yval)</div><div class="line">  <span class="keyword">print</span> <span class="string">'accuracy: %f'</span> % (acc,)</div><div class="line"></div><div class="line">  <span class="comment"># keep track of what works on the validation set</span></div><div class="line">  validation_accuracies.append((k, acc))</div></pre></td></tr></table></figure>
-<h3 id="3-Nearest-Neighbor分类器的优劣"><a href="#3-Nearest-Neighbor分类器的优劣" class="headerlink" title="3. Nearest Neighbor分类器的优劣"></a>3. Nearest Neighbor分类器的优劣</h3><img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/summary.png" alt="课堂ppt" title="课堂ppt">
+<p>好在我们有不用测试集调优的方法。其思路是：从训练集中取出一部分数据用来调优，我们称之为<strong>验证集（validation set）</strong>。以CIFAR-10为例，我们可以用49000个图像作为训练集，用1000个图像作为验证集。验证集其实就是作为模拟的测试集来调优。程序结束后，我们会作图分析出哪个k值表现最好，然后用这个k值来跑真正的测试集，并作出对算法的评价。</p>
+<blockquote>
+<p>把训练集分成训练集和验证集。使用验证集来对所有超参数调优。最后只在测试集上跑一次并报告结果。</p>
+</blockquote>
+<p><strong>交叉验证</strong>。有时候，训练集数量较小（因此验证集的数量更小），人们会使用一种被称为<strong>交叉验证</strong>的方法，这种方法更加复杂些。还是用刚才的例子，如果是交叉验证集，我们就不是取1000个图像，而是将训练集平均分成5份，其中4份用来训练，1份用来验证。然后我们循环着取其中4份来训练，其中1份来验证，最后取所有5次验证结果的平均值作为算法验证结果。</p>
+<h3 id="3-kNN分类器的实际使用步骤"><a href="#3-kNN分类器的实际使用步骤" class="headerlink" title="3. kNN分类器的实际使用步骤"></a>3. kNN分类器的实际使用步骤</h3><ol>
+<li>预处理你的数据：对你数据中的特征进行归一化（normalize），让其具有零平均值（zero mean）和单位方差（unit variance）。在后面的小节我们会讨论这些细节。本小节不讨论，是因为图像中的像素都是同质的，不会表现出较大的差异分布，也就不需要标准化处理了。</li>
+<li>如果数据是高维数据，考虑使用降维方法，比如PCA(<a href="http://link.zhihu.com/?target=http%3A//en.wikipedia.org/wiki/Principal_component_analysis" target="_blank" rel="external">wiki ref</a>, <a href="http://link.zhihu.com/?target=http%3A//cs229.stanford.edu/notes/cs229-notes10.pdf" target="_blank" rel="external">CS229ref</a>, <a href="http://link.zhihu.com/?target=http%3A//www.bigdataexaminer.com/understanding-dimensionality-reduction-principal-component-analysis-and-singular-value-decomposition/" target="_blank" rel="external">blog ref</a>)或<a href="http://link.zhihu.com/?target=http%3A//scikit-learn.org/stable/modules/random_projection.html" target="_blank" rel="external">随机投影</a>。</li>
+<li>将数据随机分入训练集和验证集。按照一般规律，70%-90% 数据作为训练集。这个比例根据算法中有多少超参数，以及这些超参数对于算法的预期影响来决定。如果需要预测的超参数很多，那么就应该使用更大的验证集来有效地估计它们。如果担心验证集数量不够，那么就尝试交叉验证方法。如果计算资源足够，使用交叉验证总是更加安全的（份数越多，效果越好，也更耗费计算资源）。</li>
+<li>在验证集上调优，尝试足够多的k值，尝试L1和L2两种范数计算方式。</li>
+<li>如果分类器跑得太慢，尝试使用Approximate Nearest Neighbor库（比如<a href="http://link.zhihu.com/?target=http%3A//www.cs.ubc.ca/research/flann/" target="_blank" rel="external">FLANN</a>）来加速这个过程，其代价是降低一些准确率。</li>
+<li>对最优的超参数做记录。记录最优参数后，是否应该让使用最优参数的算法在完整的训练集上运行并再次训练呢？因为如果把验证集重新放回到训练集中（自然训练集的数据量就又变大了），有可能最优参数又会有所变化。在实践中，<strong>不要这样做</strong>。千万不要在最终的分类器中使用验证集数据，这样做会破坏对于最优参数的估计。<strong>直接使用测试集来测试用最优参数设置好的最优模型</strong>，得到测试集数据的分类准确率，并以此作为你的kNN分类器在该数据上的性能表现。</li>
+</ol>
+<h3 id="4-Nearest-Neighbor分类器的优劣"><a href="#4-Nearest-Neighbor分类器的优劣" class="headerlink" title="4. Nearest Neighbor分类器的优劣"></a>4. Nearest Neighbor分类器的优劣</h3><img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/summary.png" alt="课堂ppt" title="课堂ppt">
 <p>现在对Nearest Neighbor分类器的优缺点进行思考。首先，Nearest Neighbor分类器<strong>易于理解，实现简单。</strong>其次，<strong>算法的训练不需要花时间</strong>，因为其训练过程只是将训练集数据存储起来。然而<strong>测试要花费大量时间计算</strong>，因为每个测试图像需要和所有存储的训练图像进行比较，这显然是一个缺点。在实际应用中，我们关注测试效率远远高于训练效率。其实，我们后续要学习的卷积神经网络在这个权衡上走到了另一个极端：虽然训练花费很多时间，但是一旦训练完成，对新的测试数据进行分类非常快。这样的模式就符合实际使用需求。</p>
 <p>Nearest Neighbor分类器在某些特定情况（比如数据维度较低）下，可能是不错的选择。但是在实际的图像分类工作中，<strong>很少使用</strong>。因为图像都是高维度数据（他们通常包含很多像素），而高维度向量之间的距离通常是反直觉的。下面的图片展示了基于像素的相似和基于感官的相似是有很大不同的：</p>
 <img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/NN.png" alt="NN.png" title="">
-<h3 id="4-线性分类器概念"><a href="#4-线性分类器概念" class="headerlink" title="4. 线性分类器概念"></a>4. 线性分类器概念</h3><p><strong>概述</strong>：我们将要实现一种更强大的方法来解决图像分类问题，该方法可以自然地延伸到神经网络和卷积神经网络上。这种方法主要有两部分组成：一个是<strong>评分函数（score function）</strong>，它是原始图像数据到类别分值的映射。另一个是<strong>损失函数（loss function）</strong>，它是用来量化预测分类标签的得分与真实标签之间一致性的。该方法可转化为一个最优化问题，在最优化过程中，将通过更新评分函数的参数来最小化损失函数值。</p>
-<h3 id="5-从图像到标签分值的参数化映射"><a href="#5-从图像到标签分值的参数化映射" class="headerlink" title="5. 从图像到标签分值的参数化映射"></a><strong>5. 从图像到标签分值的参数化映射</strong></h3><p>线性分类方法第一步就是定义一个score function（评分函数）这个函数将图像的像素值映射为各个分类类别的得分，得分高低代表图像属于该类别的可能性高低。</p>
+<h3 id="5-线性分类器概念"><a href="#5-线性分类器概念" class="headerlink" title="5. 线性分类器概念"></a>5. 线性分类器概念</h3><p><strong>概述</strong>：我们将要实现一种更强大的方法来解决图像分类问题，该方法可以自然地延伸到神经网络和卷积神经网络上。这种方法主要有两部分组成：一个是<strong>评分函数（score function）</strong>，它是原始图像数据到类别分值的映射。另一个是<strong>损失函数（loss function）</strong>，它是用来量化预测分类标签的得分与真实标签之间一致性的。该方法可转化为一个最优化问题，在最优化过程中，将通过更新评分函数的参数来最小化损失函数值。</p>
+<h3 id="6-从图像到标签分值的参数化映射"><a href="#6-从图像到标签分值的参数化映射" class="headerlink" title="6. 从图像到标签分值的参数化映射"></a><strong>6. 从图像到标签分值的参数化映射</strong></h3><p>线性分类方法第一步就是定义一个score function（评分函数）这个函数将图像的像素值映射为各个分类类别的得分，得分高低代表图像属于该类别的可能性高低。</p>
 <img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/for_example.jpg" alt="for_example.jpg" title="">
 <p>在CIFAR-10中，我们有一个<strong>N</strong>=50000的训练集，每个图像有<strong>D</strong>=32x32x3=3072个像素，而<strong>K</strong>=10，这是因为图片被分为10个不同的类别（狗，猫，汽车等）。我们现在定义评分函数为：$f:R^D\to R^K$，该函数是原始图像像素到分类分值的映射。</p>
 <p>在本模型中，我们从最简单的概率函数开始，一个线性映射：<br>$$<br>\displaystyle f(x_i,W,b)=Wx_i+b<br>$$</p>
 <p>在上面的公式中，假设每个图像数据都被拉长为一个长度为D的列向量，大小为[D x 1]。其中大小为[K x D]的矩阵<strong>W</strong>和大小为[K x 1]列向量<strong>b</strong>为该函数的<strong>参数（parameters）</strong>。还是以CIFAR-10为例，$x_i$就包含了第i个图像的所有像素信息，这些信息被拉成为一个[3072 x 1]的列向量，<strong>W</strong>大小为[10x3072]，<strong>b</strong>的大小为[10x1]。因此，3072个数字（原始像素数值）输入函数，函数输出10个数字（不同分类得到的分值）。参数<strong>W</strong>被称为<strong>权重（weights）</strong>。<strong>b</strong>被称为<strong>偏差向量（bias vector）</strong>，这是因为它影响输出数值，但是并不和原始数据$x_i$产生关联。在实际情况中，人们常常混用<strong>权重</strong>和<strong>参数</strong>这两个术语。</p>
 <img src="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/linear0.png" alt="linear0.png" title="">
-<h3 id="6-如何更好地理解线性分类器"><a href="#6-如何更好地理解线性分类器" class="headerlink" title="6. 如何更好地理解线性分类器"></a><strong>6. 如何更好地理解线性分类器</strong></h3><ul>
+<h3 id="7-如何更好地理解线性分类器"><a href="#7-如何更好地理解线性分类器" class="headerlink" title="7. 如何更好地理解线性分类器"></a><strong>7. 如何更好地理解线性分类器</strong></h3><ul>
 <li><h4 id="将图像看做高维度的点"><a href="#将图像看做高维度的点" class="headerlink" title="将图像看做高维度的点"></a><strong>将图像看做高维度的点</strong></h4><p>既然图像被伸展成为了一个高维度的列向量，那么我们可以把图像看做这个高维度空间中的一个点（即每张图像是3072维空间中的一个点）。整个数据集就是一个点的集合，每个点都带有1个分类标签。</p>
 </li>
 <li><h4 id="将线性分类器看做模板匹配"><a href="#将线性分类器看做模板匹配" class="headerlink" title="将线性分类器看做模板匹配"></a><strong>将线性分类器看做模板匹配</strong></h4><p>关于权重<strong>W</strong>的另一个解释是<strong>它</strong>的每一行对应着一个分类的模板（有时候也叫作<em>原型</em>）。一张图像对应不同分类的得分，是通过使用内积（也叫<em>点积</em>）来比较图像和模板，然后找到和哪个模板最相似。从这个角度来看，线性分类器就是在利用学习到的模板，针对图像做模板匹配。从另一个角度来看，可以认为还是在高效地使用k-NN，不同的是我们没有使用所有的训练集的图像来比较，而是每个类别只用了一张图片（这张图片是我们学习到的，而不是训练集中的某一张），而且我们会使用（负）内积来计算向量间的距离，而不是使用L1或者L2距离。</p>
@@ -460,7 +475,7 @@
 <li><h4 id="图像数据预处理"><a href="#图像数据预处理" class="headerlink" title="图像数据预处理"></a><strong>图像数据预处理</strong></h4><p>在上面的例子中，所有图像都是使用的原始像素值（从0到255）。在机器学习中，对于输入的特征做归一化（normalization）处理是常见的套路。而在图像分类的例子中，图像上的每个像素可以看做一个特征。在实践中，对每个特征减去平均值来<strong>中心化</strong>数据是非常重要的。在这些图片的例子中，该步骤意味着根据训练集中所有的图像计算出一个平均图像值，然后每个图像都减去这个平均值，这样图像的像素值就大约分布在[-127, 127]之间了。下一个常见步骤是，让所有数值分布的区间变为[-1, 1]。<strong>零均值的中心化</strong>是很重要的，等我们理解了梯度下降后再来详细解释。</p>
 </li>
 </ul>
-<h3 id="7-线性分类器与非线性分类器的区别以及优劣"><a href="#7-线性分类器与非线性分类器的区别以及优劣" class="headerlink" title="7. 线性分类器与非线性分类器的区别以及优劣"></a>7. 线性分类器与非线性分类器的区别以及优劣</h3><p>如果模型是参数的线性函数，并且存在线性分类面，那么就是线性分类器，否则不是。<br>常见的线性分类器有：LR逻辑回归、贝叶斯分类、单层感知机、线性回归<br>常见的非线性分类器：kNN、决策树、RF、GBDT、多层感知机</p>
+<h3 id="8-线性分类器与非线性分类器的区别以及优劣"><a href="#8-线性分类器与非线性分类器的区别以及优劣" class="headerlink" title="8. 线性分类器与非线性分类器的区别以及优劣"></a>8. 线性分类器与非线性分类器的区别以及优劣</h3><p>如果模型是参数的线性函数，并且存在线性分类面，那么就是线性分类器，否则不是。<br>常见的线性分类器有：LR逻辑回归、贝叶斯分类、单层感知机、线性回归<br>常见的非线性分类器：kNN、决策树、RF、GBDT、多层感知机</p>
 <blockquote>
 <p>SVM两种都有(看线性核还是高斯核)</p>
 </blockquote>
@@ -486,6 +501,8 @@
 <li>最近邻分类器能够在CIFAR-10上得到将近40%的准确率。该算法简单易实现，但需要存储所有训练数据，并且在测试的时候过于耗费计算能力。</li>
 <li>最后，我们知道了仅仅使用L1和L2范数来进行像素比较是不够的，图像更多的是按照背景和颜色被分类，而不是语义主体分身。</li>
 </ul>
+<h2 id="作业与延伸"><a href="#作业与延伸" class="headerlink" title="作业与延伸"></a>作业与延伸</h2><p><a href="">Stanford CS231n 斯坦福深度学习课程 课堂作业（Assignment 1）</a></p>
+<p><a href="">【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1</a></p>
 
       
     </div>
@@ -530,13 +547,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/笔记/" rel="tag"># 笔记</a>
-          
             <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
             <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
           
             <a href="/tags/CS231n/" rel="tag"># CS231n</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
         </div>
       
@@ -549,8 +566,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/使用pyenv + virtualenv管理Python版本和Python包/" rel="next" title="使用pyenv + virtualenv管理Python版本和Python包">
-                <i class="fa fa-chevron-left"></i> 使用pyenv + virtualenv管理Python版本和Python包
+              <a href="/2017/08/16/【译】关于机器学习的“奇技淫巧”（一）/" rel="next" title="【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1">
+                <i class="fa fa-chevron-left"></i> 【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1
               </a>
             
           </div>
@@ -630,7 +647,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -641,7 +658,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -652,7 +669,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -698,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1-图像分类-Image-Classification"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1: 图像分类 Image Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图"><span class="nav-number">1.1.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">1.2.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-L1和L2的区别"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. L1和L2的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KNN中超参数K的选择"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. KNN中超参数K的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Nearest-Neighbor分类器的优劣"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. Nearest Neighbor分类器的优劣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-线性分类器概念"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 线性分类器概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-从图像到标签分值的参数化映射"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 从图像到标签分值的参数化映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-如何更好地理解线性分类器"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 如何更好地理解线性分类器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将图像看做高维度的点"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">将图像看做高维度的点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将线性分类器看做模板匹配"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">将线性分类器看做模板匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#偏差和权重的合并技巧"><span class="nav-number">1.2.6.3.</span> <span class="nav-text">偏差和权重的合并技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像数据预处理"><span class="nav-number">1.2.6.4.</span> <span class="nav-text">图像数据预处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-线性分类器与非线性分类器的区别以及优劣"><span class="nav-number">1.2.7.</span> <span class="nav-text">7. 线性分类器与非线性分类器的区别以及优劣</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CS231n-Lecture-1-图像分类-Image-Classification"><span class="nav-number">1.</span> <span class="nav-text">CS231n Lecture 1: 图像分类 Image Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图"><span class="nav-number">1.1.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">1.2.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-L1和L2的区别"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. L1和L2的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-kNN中超参数k的选择"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. kNN中超参数k的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-kNN分类器的实际使用步骤"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. kNN分类器的实际使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Nearest-Neighbor分类器的优劣"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. Nearest Neighbor分类器的优劣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-线性分类器概念"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 线性分类器概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-从图像到标签分值的参数化映射"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 从图像到标签分值的参数化映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-如何更好地理解线性分类器"><span class="nav-number">1.2.7.</span> <span class="nav-text">7. 如何更好地理解线性分类器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将图像看做高维度的点"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">将图像看做高维度的点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将线性分类器看做模板匹配"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">将线性分类器看做模板匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#偏差和权重的合并技巧"><span class="nav-number">1.2.7.3.</span> <span class="nav-text">偏差和权重的合并技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像数据预处理"><span class="nav-number">1.2.7.4.</span> <span class="nav-text">图像数据预处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-线性分类器与非线性分类器的区别以及优劣"><span class="nav-number">1.2.8.</span> <span class="nav-text">8. 线性分类器与非线性分类器的区别以及优劣</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业与延伸"><span class="nav-number">1.4.</span> <span class="nav-text">作业与延伸</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Yorkson's Blog'" />
+  <meta name="keywords" content="翻译,机器学习," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="前言本文译自华盛顿大学Pedro Domingos教授的A Few Useful Things to Know about Machine Learning。斯坦福CS231n lecture 1推荐的阅读材料。推荐阅读第六部分。但整篇文章都很值得一读。故博主将翻译分享在此，欢迎指出错误或不足之处。 原文下载地址：A Few Useful Things to Know about Machine">
+<meta name="keywords" content="翻译,机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yorksonchang.com/2017/05/25/hello-world/index.html">
+<meta property="og:title" content="【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1">
+<meta property="og:url" content="http://yorksonchang.com/2017/08/16/【译】关于机器学习的“奇技淫巧”（一）/index.html">
 <meta property="og:site_name" content="Yorkson&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-05-25T07:21:52.000Z">
+<meta property="og:description" content="前言本文译自华盛顿大学Pedro Domingos教授的A Few Useful Things to Know about Machine Learning。斯坦福CS231n lecture 1推荐的阅读材料。推荐阅读第六部分。但整篇文章都很值得一读。故博主将翻译分享在此，欢迎指出错误或不足之处。 原文下载地址：A Few Useful Things to Know about Machine">
+<meta property="og:updated_time" content="2017-08-25T09:29:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1">
+<meta name="twitter:description" content="前言本文译自华盛顿大学Pedro Domingos教授的A Few Useful Things to Know about Machine Learning。斯坦福CS231n lecture 1推荐的阅读材料。推荐阅读第六部分。但整篇文章都很值得一读。故博主将翻译分享在此，欢迎指出错误或不足之处。 原文下载地址：A Few Useful Things to Know about Machine">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yorksonchang.com/2017/05/25/hello-world/"/>
+  <link rel="canonical" href="http://yorksonchang.com/2017/08/16/【译】关于机器学习的“奇技淫巧”（一）/"/>
 
 
 
 
 
-  <title>Hello World | Yorkson's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1 | Yorkson's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -275,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yorksonchang.com/2017/05/25/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yorksonchang.com/2017/08/16/【译】关于机器学习的“奇技淫巧”（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yorkson">
@@ -292,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1</h1>
         
 
         <div class="post-meta">
@@ -304,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T15:21:52+08:00">
-                2017-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-16T13:24:29+08:00">
+                2017-08-16
               </time>
             
 
@@ -314,6 +315,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">翻译</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -341,7 +364,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  78
+                  1,264
                 </span>
               
 
@@ -357,7 +380,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -375,15 +398,22 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文译自华盛顿大学Pedro Domingos教授的<strong>A Few Useful Things to Know about Machine Learning</strong>。斯坦福CS231n lecture 1推荐的阅读材料。推荐阅读第六部分。但整篇文章都很值得一读。故博主将翻译分享在此，欢迎指出错误或不足之处。</p>
+<p>原文下载地址：<a href="http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf" target="_blank" rel="external">A Few Useful Things to Know about Machine Learning</a></p>
+<p><strong>摘要：</strong>机器学习算法可以通过推广样本的方式找出执行复杂任务的方法。它有普通人工算法所不具备的高可行性和高性价比的特点。随着数据越来越容易获取，越来越多的难题可以得到解决。因此，机器学习算法现在正广泛地应用于计算机科学和其他领域。而开发一个成功的机器学习应用除了需要常规的理论知识，还需要一些课本中没有的“奇技淫巧”（🌚机器炼丹）。本文总结了12个机器学习研究和应用中的关键经验，包括一些应该避免的坑，一些容易被忽视的重点，以及常见问题的回答。</p>
+<h2 id="1-开篇废话"><a href="#1-开篇废话" class="headerlink" title="1. 开篇废话"></a>1. 开篇废话</h2><p>机器学习系统可以自动地从数据中学习到程序。这是一个相比手动编码更有吸引力的替代方法，在过去十年中迅速蔓延整个计算机科学领域，并突破领域得到更广泛地应用。机器学习被用于网络搜索，垃圾邮件过滤，推荐系统，广告位置、信用评分、欺诈检测、股票交易、药物设计，和许多其他应用。学术圈最近的一份来自麦肯锡的报告认为机器学习（即数据挖掘或者说预测分析）将会是下一波创新革命的引领者。关于这方面的研究和应用已经有许多教材。然而，书本中并没有提及大部分成功的机器学习应用所使用的<strong>“奇技淫巧”</strong>。因此，许多机器学习项目花费了远长于必要的成本，甚至仍无法达到理想效果。万幸，这些“奇技淫巧”很容易交流。这是这篇文章的目的。</p>
+<p>机器学习算法有很多种类型，但出于简化的目的我将重点放在最为成熟和广泛的应用：分类。（尽管如此，我所将讨论的问题适用于所有机器学习算法。）一个分类器（classifier）系统的输入通常是一个离散或连续的特征值向量，最终输出一个离散值（即分类的结果：类别）。</p>
+
+<p>例如，一个垃圾邮件过滤器，作用是将邮件归类为“垃圾邮件”和“非垃圾邮件”。它的输入是一个布尔类型向量$\vec x = (x_1,…,x_j,…,x_d) $，$x_j = 1  (True)$  表示字典中的第 j 个单词<strong>有</strong>出现在邮件文本中。学习算法（learner）输入一个训练集（$\vec x_i,y_i$），其中$\vec x_i$是输入的观察值，$y_i$是相对应的结果。然后输出一个分类器。测试学习算法的方法是看其产生的分类器能否成功判断未知邮件的类别（即不同于训练集的测试集）。</p>
+<h2 id="2-学习-表示-评价-优化"><a href="#2-学习-表示-评价-优化" class="headerlink" title="2. 学习=表示+评价+优化"></a>2. 学习=表示+评价+优化</h2><blockquote>
+<p>LEARNING = REPRESENTATION + EVALUATION + OPTIMIZATION</p>
+</blockquote>
+<p>假设你有一个很适合使用机器学习方法的应用。面对令人眼花撩乱的种种机器学习算法，你会问：用哪一种比较好？为了不在机器学习算法的迷宫里迷路，你只需要知道它只有三种因素组成：表示（REPRESENTATION）、评价（EVALUATION）和优化（OPTIMIZATION）。 </p>
+<ul>
+<li><strong>表示：</strong>一个分类器必须使用计算机可以理解的语言来表述。反过来想，选择为学习方法选择一个表示相当于选择分类器所在的可以学习的集合（set）。这个集合被称为学习算法的假设空间。如果一个分类器不在假设空间里，它将无法被习得。（有点绕🌝，有一个与此相关的问题，是该如何表示输入的数据，即该使用什么特征。这个问题我们将在后面的章节中讲解）</li>
+<li><strong>评价：</strong>我们需要一个评估函数evaluation function（也称为目的函数objective function或评分函数scoring function）来区分分类器效果的好坏。机器学习算法内部使用的评估函数可能与我们希望分类器进行优化的前提（见下文）以及下一节讨论的问题有所不同</li>
+<li><strong>优化：</strong>最后，我们需要一种方法来搜索最高分数的语言中的分类器。优化技术的选择是学习者效率的关键，如果评估函数多于一个最优，也有助于确定生成的分类器。新的学习者开始使用现成的优化器是常见的，后者被定制设计的优化器所替代。</li>
+</ul>
 
       
     </div>
@@ -412,7 +442,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://yorksonchang.com/2017/05/25/hello-world/" title="Hello World">http://yorksonchang.com/2017/05/25/hello-world/</a>
+      <a href="http://yorksonchang.com/2017/08/16/【译】关于机器学习的“奇技淫巧”（一）/" title="【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1">http://yorksonchang.com/2017/08/16/【译】关于机器学习的“奇技淫巧”（一）/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -426,6 +456,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
 
       
       
@@ -435,14 +473,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/26/使用pyenv + virtualenv管理Python版本和Python包/" rel="next" title="使用pyenv + virtualenv管理Python版本和Python包">
+                <i class="fa fa-chevron-left"></i> 使用pyenv + virtualenv管理Python版本和Python包
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/25/一期一会/" rel="prev" title="一期一会">
-                一期一会 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/18/Stanford-CS231n-学习笔记-lecture1/" rel="prev" title="Stanford CS231n 斯坦福深度学习课程 课堂笔记（lecture 1）">
+                Stanford CS231n 斯坦福深度学习课程 课堂笔记（lecture 1） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -584,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-开篇废话"><span class="nav-number">2.</span> <span class="nav-text">1. 开篇废话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-学习-表示-评价-优化"><span class="nav-number">3.</span> <span class="nav-text">2. 学习=表示+评价+优化</span></a></li></ol></div>
             
 
           </div>
