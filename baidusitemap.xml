@@ -4,30 +4,8 @@
 
     
   <url>
-    <loc>http://yorksonchang.com/2017/08/16/%E3%80%90%E8%AF%91%E3%80%91%E5%85%B3%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E2%80%9C%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E2%80%9D%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
-    <lastmod>2017-08-25T09:29:57.000Z</lastmod>
-    <data>
-        <display>
-        <title>【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1</title>
-        <pubTime>2017-08-16T05:24:29.000Z</pubTime>
-        
-        <tag>翻译</tag>
-         
-        <tag>机器学习</tag>
-         
-         
-           
-             
-              <breadCrumb title="翻译" url="http://yorksonchang.com/categories/%E7%BF%BB%E8%AF%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yorksonchang.com/2017/08/18/Stanford-CS231n-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-lecture1/</loc>
-    <lastmod>2017-08-23T17:03:10.000Z</lastmod>
+    <lastmod>2017-08-28T03:36:57.000Z</lastmod>
     <data>
         <display>
         <title>Stanford CS231n 斯坦福深度学习课程 课堂笔记（lecture 1）</title>
@@ -51,6 +29,66 @@
     </url>
 
     
+  <url>
+    <loc>http://yorksonchang.com/2017/08/16/%E3%80%90%E8%AF%91%E3%80%91%E5%85%B3%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E2%80%9C%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E2%80%9D%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    <lastmod>2017-08-25T23:20:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1</title>
+        <pubTime>2017-08-16T05:24:29.000Z</pubTime>
+        
+        <tag>翻译</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="翻译" url="http://yorksonchang.com/categories/%E7%BF%BB%E8%AF%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://yorksonchang.com/2017/07/13/%E7%94%A8RxJava+Retrofit%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88%E9%9B%B6%EF%BC%89/</loc>
+    <lastmod>2017-08-14T09:21:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>用RxJava+Retrofit开发一个知乎日报第三方客户端（零）</title>
+        <pubTime>2017-07-13T09:07:08.000Z</pubTime>
+        
+        <tag>教程</tag>
+         
+        <tag>安卓</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>RxJava</tag>
+         
+        <tag>Retrofit</tag>
+         
+        <tag>API</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="http://yorksonchang.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+             
+              <breadCrumb title="Java" url="http://yorksonchang.com/categories/%E6%95%99%E7%A8%8B/Java/"/>
+          
+             
+              <breadCrumb title="Android" url="http://yorksonchang.com/categories/%E6%95%99%E7%A8%8B/Java/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://yorksonchang.com/2017/07/26/%E4%BD%BF%E7%94%A8pyenv%20+%20virtualenv%E7%AE%A1%E7%90%86Python%E7%89%88%E6%9C%AC%E5%92%8CPython%E5%8C%85/</loc>

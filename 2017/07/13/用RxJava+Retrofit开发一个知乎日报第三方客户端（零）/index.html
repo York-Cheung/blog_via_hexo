@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="教程,安卓,Java,Android,RxJava,Retrofit,API," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="前言本篇博客分为几部分，主要记录如何使用第工具库RxJava2和Retrofit2从零开始开发一个Android Web应用——一个知乎日报第三方客户端。博主最近才开始接触到RxJava和Retrofit这对神器，也跟风了一把（虽然已经火很久了🌚），下面主要写写对这两个开发神器的理解。 欢迎读者拍砖。 响应式编程简介  响应式编程是一种基于异步数据流概念的编程模式。数据流就像一条河：它可以被观测">
+<meta name="keywords" content="教程,安卓,Java,Android,RxJava,Retrofit,API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用RxJava+Retrofit开发一个知乎日报第三方客户端（零）">
+<meta property="og:url" content="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/index.html">
+<meta property="og:site_name" content="Yorkson&#39;s Blog">
+<meta property="og:description" content="前言本篇博客分为几部分，主要记录如何使用第工具库RxJava2和Retrofit2从零开始开发一个Android Web应用——一个知乎日报第三方客户端。博主最近才开始接触到RxJava和Retrofit这对神器，也跟风了一把（虽然已经火很久了🌚），下面主要写写对这两个开发神器的理解。 欢迎读者拍砖。 响应式编程简介  响应式编程是一种基于异步数据流概念的编程模式。数据流就像一条河：它可以被观测">
+<meta property="og:image" content="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/Observer1.jpg">
+<meta property="og:image" content="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/Observer2.jpg">
+<meta property="og:image" content="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/Observe.gif">
+<meta property="og:image" content="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/for_example.jpg">
+<meta property="og:updated_time" content="2017-08-14T09:21:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用RxJava+Retrofit开发一个知乎日报第三方客户端（零）">
+<meta name="twitter:description" content="前言本篇博客分为几部分，主要记录如何使用第工具库RxJava2和Retrofit2从零开始开发一个Android Web应用——一个知乎日报第三方客户端。博主最近才开始接触到RxJava和Retrofit这对神器，也跟风了一把（虽然已经火很久了🌚），下面主要写写对这两个开发神器的理解。 欢迎读者拍砖。 响应式编程简介  响应式编程是一种基于异步数据流概念的编程模式。数据流就像一条河：它可以被观测">
+<meta name="twitter:image" content="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/Observer1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/"/>
+
+
+
+
+
+  <title>用RxJava+Retrofit开发一个知乎日报第三方客户端（零） | Yorkson's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yorkson's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yorkson">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yorkson's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用RxJava+Retrofit开发一个知乎日报第三方客户端（零）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T17:07:08+08:00">
+                2017-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/Java/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,529
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇博客分为几部分，主要记录如何使用第工具库RxJava2和Retrofit2从零开始开发一个Android Web应用——一个知乎日报第三方客户端。博主最近才开始接触到RxJava和Retrofit这对神器，也跟风了一把（虽然已经火很久了🌚），下面主要写写对这两个开发神器的理解。</p>
+<p>欢迎读者拍砖。</p>
+<h2 id="响应式编程简介"><a href="#响应式编程简介" class="headerlink" title="响应式编程简介"></a>响应式编程简介</h2><blockquote>
+<ul>
+<li>响应式编程是一种基于异步数据流概念的编程模式。数据流就像一条河：它可以被观测，被过滤，被操作，或者为新的消费者与另外一条流合并为一条新的流。</li>
+<li>响应式编程的一个关键概念是事件。事件可以被等待，可以触发过程，也可以触发其它事件。事件是唯一的以合适的方式将我们的现实世界映射到我们的软件中：如果屋里太热了我们就打开一扇窗户。同样的，当我们更改电子表（变化的传播）中的一些数值时，我们需要更新整个表格或者我们的机器人碰到墙时会转弯（响应事件）。</li>
+<li>今天，响应式编程最通用的一个场景是UI：我们的移动App必须做出对网络调用、用户触摸输入和系统弹框的响应。在这个世界上，软件之所以是事件驱动并响应的是因为现实生活也是如此。</li>
+</ul>
+</blockquote>
+<p>RxJava提供了一种以面向时序的方式考虑数据的机会：所有事情都是持续变化的，数据在更新，事件在触发，然后你就可以创建事件响应式的、灵活的、运行流畅的App。</p>
+<h2 id="RxJava介绍"><a href="#RxJava介绍" class="headerlink" title="RxJava介绍"></a>RxJava介绍</h2><p>一个词：<strong>异步</strong>。</p>
+<p>它是一个实现异步操作的库（关于异步与同步、阻塞、非阻塞的讨论请见<a href="http://www.jianshu.com/p/02f76566fd90" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别？</a>），特点在于简洁，Android中用于异步操作的类有AsyncTask、Handler等等，但都没有RxJava简洁。博主在开发的过程中感觉RxJava学习起来是有点难度的，开发效率方面可能因为逻辑还比较简单，并没有发挥出RxJava的威力。</p>
+<h3 id="RxJava-的观察者模式"><a href="#RxJava-的观察者模式" class="headerlink" title="RxJava 的观察者模式"></a>RxJava 的观察者模式</h3><p>要了解RxJava的使用，首先要理解RxJava使用的<strong>“观察者模式”</strong>。</p>
+<p>类比于Android中的点击监听器<code>OnClickListener</code>，<code>View</code> 是被观察者， <code>OnClickListener</code> 是观察者，二者通过 <code>setOnClickListener()</code> 方法达成订阅关系。</p>
+<img src="/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/Observer1.jpg" alt="Observer1.jpg" title="">
+<p>如图所示，通过 <code>setOnClickListener()</code> 方法，<code>Button</code> 持有 <code>OnClickListener</code> 的引用（这一过程没有在图上画出）；当用户点击时，<code>Button</code> 自动调用 <code>OnClickListener</code> 的 <code>onClick()</code> 方法。另外，如果把这张图中的概念抽象出来（<code>Button</code> -&gt; 被观察者、<code>OnClickListener</code> -&gt; 观察者、<code>setOnClickListener()</code> -&gt; 订阅，<code>onClick()</code> -&gt; 事件），就由专用的观察者模式（例如只用于监听控件点击）转变成了通用的观察者模式。如下图：</p>
+<img src="/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/Observer2.jpg" alt="Observer2.jpg" title="">
+<p>RxJava 有四个基本概念：</p>
+<ul>
+<li><code>Observable</code> (可观察者，即被观察者)</li>
+<li><code>Observer</code> (观察者)</li>
+<li><code>Subscribe</code> (订阅)</li>
+<li><code>Event</code>(事件)</li>
+</ul>
+<p><code>Observable</code> 和 <code>Observer</code> 通过 <code>subscribe()</code> 方法实现订阅关系，从而 <code>Observable</code> 可以在需要的时候发出<code>事件</code>来通知 <code>Observer</code>。RxJava中事件回调方法除了普通事件<code>onNext()</code> ，还有两个特殊事件<code>onCompleted()</code>和<code>onError()</code>，分别用于处理事件队列完结和事件队列异常。</p>
+<p>RxJava的观察者模式图解如下：</p>
+<img src="/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/Observe.gif" alt="Observe.gif" title="">
+<h3 id="RxJava的基本用法"><a href="#RxJava的基本用法" class="headerlink" title="RxJava的基本用法"></a>RxJava的基本用法</h3><p>正如把大象 🐘 放进冰箱里一样简单，只需三步：打开冰箱门，把大象放进去，关上冰箱门。</p>
+<p>在工程里使用RxJava也只需三步：创建被观察者<code>Observalbe</code>，创建观察者<code>Observer</code>，用<code>subscribe()</code>方法把这两者联结起来。</p>
+<img src="/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/for_example.jpg" alt="for_example.jpg" title="">
+<p>0）导入RxJava2到Java项目</p>
+<p>博主使用Gradle来进行项目第三方包管理，打开IntelliJ IDEA选择新建Gradle项目就行了。在build.gradle文件的dependencies中添加<code>compile group: &#39;io.reactivex.rxjava2&#39;, name: &#39;rxjava&#39;, version: &#39;2.1.1&#39;</code>然后点击Gradle projects面板左上角的刷新按钮，开始gradle build。</p>
+<p>1）创建被观察者</p>
+<p>要创建Observable，你可以手动实现Observable的行为，也可以传递一个函数给<a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Create.html" target="_blank" rel="external"><code>create( )</code></a>，还可以使用这      些 <a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Creating-Observables.html" target="_blank" rel="external">创建操作符</a> 将一个已有的数据结构转换为Observable。下面代码调用Observable.create( )函数创建一个被观察者：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Observable&lt;String&gt; myObservable = Observable.create(  </div><div class="line">    <span class="keyword">new</span> Observable.OnSubscribe&lt;String&gt;() &#123;  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber&lt;? <span class="keyword">super</span> String&gt; sub)</span> </span>&#123;  </div><div class="line">            sub.onNext(<span class="string">"Hello, world!"</span>);  </div><div class="line">            sub.onCompleted();  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">);</div></pre></td></tr></table></figure>
+<p>可以看到，这里传入了一个 <code>OnSubscribe</code> 对象作为参数。<code>OnSubscribe</code> 会被存储在返回的 <code>Observable</code> 对象中，它的作用相当于一个计划表，当 <code>Observable</code> 被订阅的时候，<code>OnSubscribe</code> 的 <code>call()</code> 方法会自动被调用，事件序列就会依照设定依次触发（对于上面的代码，就是观察者<code>Subscriber</code> 将会被调用一次 <code>onNext()</code> 和一次 <code>onCompleted()</code>）。这样，由被观察者调用了观察者的回调方法，就实现了由被观察者向观察者的事件传递，即观察者模式。这里定义的Observable对象仅仅发出一个”Hello, world!”字符串，然后就没有然后了。</p>
+<p>2）创建观察者</p>
+<p>我们接着创建一个观察者Subscriber来处理被观察者<code>myObservable</code>发出的字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Subscriber&lt;String&gt; mySubscriber = <span class="keyword">new</span> Subscriber&lt;String&gt;() &#123;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123; System.out.println(s); &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123; &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123; &#125;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>3）订阅</p>
+<p>创建了 <code>Observable</code> 和 <code>Subscriber</code> 之后，再用 <code>subscribe()</code> 方法将它们联结起来，整条链子就可以工作了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myObservable.subscribe(mySubscriber);</div></pre></td></tr></table></figure>
+<p>注意这里是被观察者<code>myObservable</code>“订阅”了观察者<code>mySubscriber</code>，和实际相反。</p>
+<p><code>subscriber()</code>方法做了3件事：</p>
+<ol>
+<li>调用 <code>Subscriber.onStart()</code> 。这是一个Subscriber可选的准备方法。</li>
+<li>调用 <code>Observable</code> 中的 <code>OnSubscribe.call(Subscriber)</code> 。在这里，事件发送的逻辑开始运行。从这也可以看出，在 RxJava 中， <code>Observable</code> 并不是在创建的时候就立即开始发送事件，而是在它被订阅的时候，即当 <code>subscribe()</code> 方法执行的时候。</li>
+<li>将传入的 <code>Subscriber</code> 作为 <code>Subscription</code> 返回。这是为了方便 <code>unsubscribe()</code>.</li>
+</ol>
+<p>整个过程中对象间的关系如下图：</p>
+
+<p>4）简化代码</p>
+<p>RxJava提供了一些创建操作符将已有的数据结构转换为Observable（具体见上面的链接）。上面的例子中，我们的<code>Observable</code>只发出了一个事件，我们可以用<code>just(&quot;Hello, world!&quot;)</code>方法来创建对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Observable&lt;String&gt; myObservable = Observable.just(<span class="string">"Hello, world!"</span>);</div></pre></td></tr></table></figure>
+<p>此外，在创建观察者的时候我们只用到了<code>OnNext()</code>方法，那么是否有简便的方法来定义一个简单版的观察者呢？答案是有的，我们可以使用<code>Action1</code>类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Action1&lt;String&gt; onNextAction = <span class="keyword">new</span> Action1&lt;String&gt;() &#123;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(String s)</span> </span>&#123;  </div><div class="line">        System.out.println(s);  </div><div class="line">    &#125;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这是因为RxJava中<code>subscribe()</code> 支持不完整定义的回调，RxJava 会自动根据定义创建出 <code>Subscriber</code> 。形式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Action1&lt;String&gt; onNextAction = <span class="keyword">new</span> Action1&lt;String&gt;() &#123;</div><div class="line">    <span class="comment">// onNext()</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        Log.d(tag, s);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">Action1&lt;Throwable&gt; onErrorAction = <span class="keyword">new</span> Action1&lt;Throwable&gt;() &#123;</div><div class="line">    <span class="comment">// onError()</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Throwable throwable)</span> </span>&#123;</div><div class="line">        <span class="comment">// Error handling</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">Action0 onCompletedAction = <span class="keyword">new</span> Action0() &#123;</div><div class="line">    <span class="comment">// onCompleted()</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calljf</span><span class="params">()</span> </span>&#123;</div><div class="line">        Log.d(tag, <span class="string">"completed"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 自动创建 Subscriber ，并使用 onNextAction 来定义 onNext()</span></div><div class="line">observable.subscribe(onNextAction);</div><div class="line"><span class="comment">// 自动创建 Subscriber ，并使用 onNextAction 和 onErrorAction 来定义 onNext() 和 onError()</span></div><div class="line">observable.subscribe(onNextAction, onErrorAction);</div><div class="line"><span class="comment">// 自动创建 Subscriber ，并使用 onNextAction、 onErrorAction 和 onCompletedAction 来定义 onNext()、 onError() 和 onCompleted()</span></div><div class="line">observable.subscribe(onNextAction, onErrorAction, onCompletedAction);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Action0</code> 是 RxJava 的一个接口，它只有一个方法 <code>call()</code>，这个方法是无参无返回值的；由于 <code>onCompleted()</code> 方法也是无参无返回值的，因此 <code>Action0</code> 可以被当成一个包装对象，将 <code>onCompleted()</code> 的内容打包起来将自己作为一个参数传入 <code>subscribe()</code> 以实现不完整定义的回调。这样其实也可以看做将 <code>onCompleted()</code> 方法作为参数传进了 <code>subscribe()</code>，相当于其他某些语言中的『闭包』。 <code>Action1</code> 也是一个接口，它同样只有一个方法 <code>call(T param)</code>，这个方法也无返回值，但有一个参数；与 <code>Action0</code> 同理，由于 <code>onNext(T obj)</code> 和 <code>onError(Throwable error)</code> 也是单参数无返回值的，因此 <code>Action1</code>可以将 <code>onNext(obj)</code> 和 <code>onError(error)</code> 打包起来传入 <code>subscribe()</code> 以实现不完整定义的回调。事实上，虽然 <code>Action0</code> 和 <code>Action1</code>在 API 中使用最广泛，但 RxJava 是提供了多个 <code>ActionX</code> 形式的接口 (例如 <code>Action2</code>, <code>Action3</code>) 的，它们可以被用以包装不同的无返回值的方法。</p>
+</blockquote>
+<p>到此，我们的例子可以简化成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="string">"Hello, world!"</span>)  </div><div class="line">    .subscribe(<span class="keyword">new</span> Action1&lt;String&gt;() &#123;  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(String s)</span> </span>&#123;  </div><div class="line">              System.out.println(s);  </div><div class="line">        &#125;  </div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>使用Java8的lambada表达式还可以简化成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="string">"Hello, world!"</span>)</div><div class="line">  .subscribe(s -&gt; System.out.println(s));</div></pre></td></tr></table></figure>
+<p>运行程序得到输出<code>Hello, world!</code></p>
+<h3 id="RxJava的变换"><a href="#RxJava的变换" class="headerlink" title="RxJava的变换"></a>RxJava的变换</h3><p>变换是RxJava的核心功能，<strong>所谓变换，就是将事件序列中的对象或整个序列进行加工处理，转换成不同的事件或事件序列。</strong>我们使用操作符<code>Operators</code>实现这种变换。还是用上面的例子，看下面的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="string">"Hello, world!"</span>)</div><div class="line">    .map(<span class="keyword">new</span> Func1&lt;String, Integer&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> s.hashCode();</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    .subscribe(i -&gt; System.out.println(Integer.toString(i)));</div></pre></td></tr></table></figure>
+<p>在这里<code>Observable</code>使用<code>.map()</code>操作符将获取到的字符串转换成它的哈希值，并交给<code>Subscriber</code> 打印。根据响应式编程的思想，<code>Subscriber</code>应该做的事情，是响应<code>Observable</code>发出的事件，而不是去修改，在这里，我们使用操作符在两者之间修改Observable发出的事件。</p>
+<blockquote>
+<p>这里出现了一个叫做 <code>Func1</code> 的类。它和 <code>Action1</code> 非常相似，也是 RxJava 的一个接口，用于包装含有一个参数的方法。 <code>Func1</code> 和 <code>Action</code> 的区别在于， <code>Func1</code> 包装的是有返回值的方法。另外，和 <code>ActionX</code> 一样， <code>FuncX</code> 也有多个，用于不同参数个数的方法。<code>FuncX</code>和 <code>ActionX</code> 的区别在 <code>FuncX</code> 包装的是有返回值的方法。</p>
+</blockquote>
+<p>上面的代码还可以使用J8 lambda 简化，并进一步单纯化<code>Subscriber</code>的功能：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="string">"Hello, world!"</span>)</div><div class="line">    .map(s -&gt; s.hashCode())</div><div class="line">    .map(i -&gt; Integer.toString(i))</div><div class="line">    .subscribe(s -&gt; System.out.println(s));</div></pre></td></tr></table></figure>
+<h2 id="Retrofit介绍"><a href="#Retrofit介绍" class="headerlink" title="Retrofit介绍"></a>Retrofit介绍</h2><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p>给 Android 开发者的 RxJava 详解: <a href="http://gank.io/post/560e15be2dca930e00da1083#toc_14" target="_blank" rel="external">http://gank.io/post/560e15be2dca930e00da1083#toc_14</a></p>
+<p>Grokking RxJava(part1, part2, part3): <a href="http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/" target="_blank" rel="external">http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Yorkson
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/" title="用RxJava+Retrofit开发一个知乎日报第三方客户端（零）">http://yorksonchang.com/2017/07/13/用RxJava+Retrofit开发一个知乎日报第三方客户端（零）/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+            <a href="/tags/安卓/" rel="tag"># 安卓</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/RxJava/" rel="tag"># RxJava</a>
+          
+            <a href="/tags/Retrofit/" rel="tag"># Retrofit</a>
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/28/Mac-OS-X下快速复制文件／文件夹路径的方法/" rel="next" title="Mac OS X下快速复制文件／文件夹路径的方法">
+                <i class="fa fa-chevron-left"></i> Mac OS X下快速复制文件／文件夹路径的方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/26/使用pyenv + virtualenv管理Python版本和Python包/" rel="prev" title="使用pyenv + virtualenv管理Python版本和Python包">
+                使用pyenv + virtualenv管理Python版本和Python包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Yorkson" />
+          <p class="site-author-name" itemprop="name">Yorkson</p>
+           
+              <p class="site-description motion-element" itemprop="description">人！生！就！是！不！停！地！战！斗！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/YorksonChang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-https://github.com/yorksonchang"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式编程简介"><span class="nav-number">1.1.</span> <span class="nav-text">响应式编程简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RxJava介绍"><span class="nav-number">1.2.</span> <span class="nav-text">RxJava介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RxJava-的观察者模式"><span class="nav-number">1.2.1.</span> <span class="nav-text">RxJava 的观察者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RxJava的基本用法"><span class="nav-number">1.2.2.</span> <span class="nav-text">RxJava的基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RxJava的变换"><span class="nav-number">1.2.3.</span> <span class="nav-text">RxJava的变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrofit介绍"><span class="nav-number">1.3.</span> <span class="nav-text">Retrofit介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">1.3.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yorkson</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>
