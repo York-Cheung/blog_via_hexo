@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="LogicRegression  Simple octave function  a.     数据可视化，使用plot函数完成数据点的绘制。代码如下所示。 % Find Indices of Positive andNegative Examples pos = find(y==1); neg = find(y == 0); % Plot Examples plot(X(pos, 1), X(p">
+<meta name="description" content="LogicRegression  Simple octave function  a.     数据可视化，使用plot函数完成数据点的绘制。代码如下所示。 12345678910111213% Find Indices of Positive andNegative Examplespos = find(y==1); neg = find(y == 0);% Plot Examplesplot(">
 <meta name="keywords" content="机器学习,Coursera">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习导论：逻辑回归">
 <meta property="og:url" content="http://yorksonchang.com/2017/10/21/机器学习导论：逻辑回归/index.html">
 <meta property="og:site_name" content="Yorkson&#39;s Blog">
-<meta property="og:description" content="LogicRegression  Simple octave function  a.     数据可视化，使用plot函数完成数据点的绘制。代码如下所示。 % Find Indices of Positive andNegative Examples pos = find(y==1); neg = find(y == 0); % Plot Examples plot(X(pos, 1), X(p">
-<meta property="og:updated_time" content="2017-12-17T09:58:41.000Z">
+<meta property="og:description" content="LogicRegression  Simple octave function  a.     数据可视化，使用plot函数完成数据点的绘制。代码如下所示。 12345678910111213% Find Indices of Positive andNegative Examplespos = find(y==1); neg = find(y == 0);% Plot Examplesplot(">
+<meta property="og:updated_time" content="2017-12-17T10:18:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习导论：逻辑回归">
-<meta name="twitter:description" content="LogicRegression  Simple octave function  a.     数据可视化，使用plot函数完成数据点的绘制。代码如下所示。 % Find Indices of Positive andNegative Examples pos = find(y==1); neg = find(y == 0); % Plot Examples plot(X(pos, 1), X(p">
+<meta name="twitter:description" content="LogicRegression  Simple octave function  a.     数据可视化，使用plot函数完成数据点的绘制。代码如下所示。 12345678910111213% Find Indices of Positive andNegative Examplespos = find(y==1); neg = find(y == 0);% Plot Examplesplot(">
 
 
 
@@ -364,7 +364,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  396
+                  405
                 </span>
               
 
@@ -403,33 +403,25 @@
 <li>Simple octave function</li>
 </ol>
 <p>a.     数据可视化，使用plot函数完成数据点的绘制。代码如下所示。</p>
-<p>% Find Indices of Positive andNegative Examples</p>
-<p>pos = find(y==1); neg = find(y == 0);</p>
-<p>% Plot Examples</p>
-<p>plot(X(pos, 1), X(pos, 2), ‘k+’,’LineWidth’, 2, …</p>
-<p>​    ‘MarkerSize’, 7);</p>
-<p>plot(X(neg, 1), X(neg, 2), ‘ko’, ‘MarkerFaceColor’, ‘y’, …</p>
-<p>‘MarkerSize’, 7);</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">% Find Indices of Positive andNegative Examples</span></div><div class="line"></div><div class="line">pos = <span class="built_in">find</span>(y==<span class="number">1</span>); neg = <span class="built_in">find</span>(y == <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">% Plot Examples</span></div><div class="line"></div><div class="line">plot(X(pos, <span class="number">1</span>), X(pos, <span class="number">2</span>), <span class="string">'k+'</span>,<span class="string">'LineWidth'</span>, <span class="number">2</span>, ...</div><div class="line"></div><div class="line">    <span class="string">'MarkerSize'</span>, <span class="number">7</span>);</div><div class="line"></div><div class="line">plot(X(neg, <span class="number">1</span>), X(neg, <span class="number">2</span>), <span class="string">'ko'</span>, <span class="string">'MarkerFaceColor'</span>, <span class="string">'y'</span>, ...</div><div class="line"></div><div class="line"><span class="string">'MarkerSize'</span>, <span class="number">7</span>);</div></pre></td></tr></table></figure>
 <p>运行程序，如图所示。</p>
 <p>​                              </p>
 <p>b.    接下来计算cost function，首先实现sigmoid函数。</p>
 <p>代码如下：</p>
-<p>g =1./(exp(1.0).^(-z)+1);</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g =<span class="number">1.</span>/(<span class="built_in">exp</span>(<span class="number">1.0</span>).^(-z)+<span class="number">1</span>);</div></pre></td></tr></table></figure>
 <p>根据逻辑回归的cost function 公式</p>
 <p>实现costfunction 函数，代码如下：</p>
-<p>J = sum (-y .<em>log( sigmoid ( X</em>theta ) ) - (1 - y) .<em> log(1 - sigmoid( X</em>theta ) ) )/m;</p>
-<p>根据梯度公式</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">J = sum (-y .*<span class="built_in">log</span>( sigmoid ( X*theta ) ) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid( X*theta ) ) )/m;</div></pre></td></tr></table></figure>
+<p>根据梯度公式z</p>
 <p>实现梯度计算，代码如下：</p>
-<p>grad= X’ <em> (sigmoid (X </em> theta) - y) / m;</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grad= X' * (sigmoid (X * theta) - y) / m;</div></pre></td></tr></table></figure>
 <p>运行ex2，如图所示。</p>
 <p>使用fminunc（）函数实现梯度下降算法，运行结果如图所示。</p>
 <p>c.     使用计算得到的theta对输入进行预测。</p>
-<p>prob= sigmoid([1 45 85] * theta);</p>
-<p>fprintf([‘For a student with scores 45 and 85, we predict an admission ‘ …</p>
-<p>​                   ‘probability of %f\n\n’], prob);</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">prob= sigmoid([<span class="number">1</span> <span class="number">45</span> <span class="number">85</span>] * theta);</div><div class="line"></div><div class="line">fprintf([<span class="string">'For a student with scores 45 and 85, we predict an admission '</span> ...</div><div class="line"></div><div class="line">                   <span class="string">'probability of %f\n\n'</span>], prob);</div></pre></td></tr></table></figure>
 <p>对于两次考试分别为45分和85分的学生，输出录取概率。</p>
 <p>实现predict函数，计算预测值，代码如下：</p>
-<p>p =round(sigmoid(X * theta));</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p =<span class="built_in">round</span>(sigmoid(X * theta));</div></pre></td></tr></table></figure>
 <p>统计训练准确率。</p>
 <p>如图所示。</p>
 <ol>
@@ -437,11 +429,7 @@
 </ol>
 <p>a.     绘制数据点，如图所示。</p>
 <p>b.    实现cost function 正则化版函数，代码如下：</p>
-<p>theta2 =theta;</p>
-<p>theta2(1,1)=0;</p>
-<p>J = sum (-y .<em>log( sigmoid ( X</em>theta ) ) - (1 - y) .<em> log(1 - sigmoid( X</em>theta ) ) )/m +sum(theta2.^2) <em> lambda /(2</em>m);</p>
-<p>grad = sum(X.<em> (sigmoid ( X</em>theta ) - y) )/m + (lambda/m) * theta2’;</p>
-<p>grad = grad’;</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">theta2 =theta;</div><div class="line"></div><div class="line">theta2(<span class="number">1</span>,<span class="number">1</span>)=<span class="number">0</span>;</div><div class="line"></div><div class="line">J = sum (-y .<span class="built_in">log</span>( sigmoid ( Xtheta ) ) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid( Xtheta ) ) )/m +sum(theta2.^<span class="number">2</span>) * lambda /(<span class="number">2</span>m);</div><div class="line"></div><div class="line">grad = sum(X.* (sigmoid ( X*theta ) - y) )/m + (lambda/m) * theta2';</div><div class="line"></div><div class="line">grad = grad';</div></pre></td></tr></table></figure>
 <p>​          并绘制decision boundary，如图所示。</p>
 <p>​                                     </p>
 <p>c.     调整lambda参数大小，并通过绘制图表查看结果。</p>
