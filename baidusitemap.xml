@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yorksonchang.com/2017/12/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AF%BC%E8%AE%BA%EF%BC%9AK-means%E8%81%9A%E7%B1%BB/</loc>
+    <lastmod>2017-12-17T10:26:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习导论：K-means聚类</title>
+        <pubTime>2017-12-19T16:00:00.000Z</pubTime>
+        
+        <tag>Coursera</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="实验" url="http://yorksonchang.com/categories/%E5%AE%9E%E9%AA%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yorksonchang.com/2017/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AF%BC%E8%AE%BA%EF%BC%9A%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</loc>
     <lastmod>2017-12-17T10:18:14.000Z</lastmod>
     <data>
@@ -11,9 +33,9 @@
         <title>机器学习导论：逻辑回归</title>
         <pubTime>2017-10-20T16:00:00.000Z</pubTime>
         
-        <tag>机器学习</tag>
-         
         <tag>Coursera</tag>
+         
+        <tag>机器学习</tag>
          
          
            
@@ -33,9 +55,9 @@
         <title>机器学习导论：线性回归</title>
         <pubTime>2017-10-20T16:00:00.000Z</pubTime>
         
-        <tag>机器学习</tag>
-         
         <tag>Coursera</tag>
+         
+        <tag>机器学习</tag>
          
          
            
@@ -81,9 +103,9 @@
         <title>【译】关于机器学习的“奇技淫巧”（一）A Few Useful Things to Know about Machine Learning part 1</title>
         <pubTime>2017-08-16T05:24:29.000Z</pubTime>
         
-        <tag>翻译</tag>
-         
         <tag>机器学习</tag>
+         
+        <tag>翻译</tag>
          
          
            
@@ -142,11 +164,11 @@
         <title>使用pyenv + virtualenv管理Python版本和Python包</title>
         <pubTime>2017-07-26T15:59:34.000Z</pubTime>
         
+        <tag>工具</tag>
+         
         <tag>教程</tag>
          
         <tag>Python</tag>
-         
-        <tag>工具</tag>
          
         <tag>MacOS</tag>
          
@@ -189,11 +211,11 @@
         <title>Mac OS X下快速复制文件／文件夹路径的方法</title>
         <pubTime>2017-05-28T08:42:42.000Z</pubTime>
         
-        <tag>工具</tag>
-         
         <tag>Mac</tag>
          
         <tag>OSX</tag>
+         
+        <tag>工具</tag>
          
         <tag>效率</tag>
          
